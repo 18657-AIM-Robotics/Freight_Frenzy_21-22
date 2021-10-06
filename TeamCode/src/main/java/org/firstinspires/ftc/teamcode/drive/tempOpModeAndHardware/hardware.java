@@ -35,8 +35,8 @@ public class hardware {
 
     private ElapsedTime runtime = new ElapsedTime();
 
-    // public DcMotorEx xEncoder = null;
-    // public DcMotorEx yEncoder = null;
+    public DcMotorEx xEncoder = null;
+    public DcMotorEx yEncoder = null;
 
     /* local OpMode members. */
     static final double     COUNTS_PER_MOTOR_REV    = 28 ;    // eg: TETRIX Motor Encoder
@@ -62,8 +62,8 @@ public class hardware {
         rightRear = hwMap.get(DcMotorEx.class, "back_right_drive");
         spinner = hwMap.get(DcMotor.class, "spinner");
 
-        // xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
-        // yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
+        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
+        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
         leftFront.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         rightFront.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         leftRear.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
@@ -71,17 +71,5 @@ public class hardware {
 
 
     }
-
-//    public void runToPosition(int position, double power) {
-//        angle.setPower(0);
-//        angle.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        angle.setTargetPosition(position);
-//        angle.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//        while (!(angle.getCurrentPosition() == angle.getTargetPosition())) {
-//            angle.setPower(power);
-//        }
-//        angle.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//        angle.setPower(0);
-//    }
 }
 
