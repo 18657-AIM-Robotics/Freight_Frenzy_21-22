@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-public class hardware {
+public class hardware extends autoFunctions{
 
     /* Public OpMode members. */
     public HardwareMap hwMap = null;
