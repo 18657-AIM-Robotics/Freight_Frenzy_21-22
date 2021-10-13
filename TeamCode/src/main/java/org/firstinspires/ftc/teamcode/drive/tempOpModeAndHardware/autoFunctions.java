@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class autoFunctions {
 
-    /* Declare OpMode members. */
     hardware robot = new hardware();
 
     public static double X_TICKSTOINCHES = 1425;
