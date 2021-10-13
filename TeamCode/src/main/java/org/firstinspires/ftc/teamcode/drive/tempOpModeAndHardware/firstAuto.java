@@ -24,7 +24,7 @@ public class firstAuto extends LinearOpMode {
             robot.moveIn("x", .5, 12); // Moves 12 inches to the Right
             robot.moveIn("x", -.5, 12); // Moves 12 inches to the Left
             robot.moveIn("y", .5, 12); // Moves 12 inches Forward
-            robot.moveIn("y", .5, 12); // Moves 12 inches Backward
+            robot.moveIn("y", -.5, 12); // Moves 12 inches Backward
             break;
         }
     }
