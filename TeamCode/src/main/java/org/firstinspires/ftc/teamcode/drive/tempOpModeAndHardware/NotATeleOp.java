@@ -122,12 +122,12 @@ public class NotATeleOp extends OpMode {
         robot.rightFront.setPower(frontRightPower * .8);
         robot.rightRear.setPower(backRightPower * .8);
 
-        if (gamepad1.a) {
-            robot.spinner.setPower(-1);
-        } else if (gamepad1.b) {
-            robot.spinner.setPower(1);
-        } else
-            robot.spinner.setPower(0);
+//        if (gamepad1.a) {
+//            robot.spinner.setPower(-1);
+//        } else if (gamepad1.b) {
+//            robot.spinner.setPower(1);
+//        } else
+//            robot.spinner.setPower(0);
 
 
         // Send telemetry message to signify robot running;
