@@ -8,15 +8,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name="firstAuto", group="Pushbot")
 public class firstAuto extends LinearOpMode {
 
-    hardware robot = new hardware();
+    autoFunctions robot = new autoFunctions();
 
     @Override
     public void runOpMode() {
-        robot.init(hardwareMap);
-        robot.leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.leftRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        robot.rightRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+//        robot.init(hardwareMap);
+//        robot.leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+//        robot.rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+//        robot.leftRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+//        robot.rightRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
 
         waitForStart();

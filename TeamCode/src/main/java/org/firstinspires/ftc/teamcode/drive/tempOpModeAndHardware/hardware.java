@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-public class hardware extends autoFunctions{
+public class hardware {
 
     /* Public OpMode members. */
     public HardwareMap hwMap = null;
@@ -13,7 +13,7 @@ public class hardware extends autoFunctions{
     public DcMotorEx rightFront = null;
     public DcMotorEx leftRear = null;
     public DcMotorEx rightRear = null;
-    public DcMotor spinner = null;
+//    public DcMotor spinner = null;
 
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -42,10 +42,10 @@ public class hardware extends autoFunctions{
         rightFront = hwMap.get(DcMotorEx.class, "front_right_drive");
         leftRear = hwMap.get(DcMotorEx.class, "back_left_drive");
         rightRear = hwMap.get(DcMotorEx.class, "back_right_drive");
-        spinner = hwMap.get(DcMotor.class, "spinner");
+//        spinner = hwMap.get(DcMotor.class, "spinner");
 
-        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
-        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
+//        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
+//        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
         leftFront.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         rightFront.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         leftRear.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
