@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name="firstAuto", group="Pushbot")
 public class firstAuto extends LinearOpMode {
 
-    autoFunctions robot = new autoFunctions();
+    robotFunctions robot = new robotFunctions();
 
     @Override
     public void runOpMode() {

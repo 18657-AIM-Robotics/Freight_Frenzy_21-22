@@ -38,14 +38,14 @@ public class teleOPPPPPPP extends OpMode {
         double backRightPower;
 
         // Setup a variable for each drive wheel to save power level for telemetry
-        double y = -gamepad1.left_stick_y * 1.2; // Remember, this is reversed!
+        double y = gamepad1.left_stick_y * 1.2; // Remember, this is reversed!
         double x = gamepad1.left_stick_x * 1.5;
         double rx = gamepad1.right_stick_x * .85;
 
-        frontLeftPower = (y + x + rx);
-        backLeftPower = (y - x + rx);
-        frontRightPower = (y - x - rx);
-        backRightPower = (y + x - rx);
+        frontLeftPower = (y + x - rx);
+        backLeftPower = (y - x - rx);
+        frontRightPower = (y + x + rx);
+        backRightPower = (y - x + rx);
         // Put powers in the range of -1 to 1 only if they aren't already (not
         // checking would cause us to always drive at full speed)
 

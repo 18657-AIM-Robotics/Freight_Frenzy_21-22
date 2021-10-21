@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -13,6 +14,8 @@ public class hardware {
     public DcMotorEx rightFront = null;
     public DcMotorEx leftRear = null;
     public DcMotorEx rightRear = null;
+//    public DcMotorEx leftLift = null;
+//    public DcMotorEx rightLift = null;
 //    public DcMotor spinner = null;
 
     private ElapsedTime runtime = new ElapsedTime();
@@ -42,14 +45,19 @@ public class hardware {
         rightFront = hwMap.get(DcMotorEx.class, "front_right_drive");
         leftRear = hwMap.get(DcMotorEx.class, "back_left_drive");
         rightRear = hwMap.get(DcMotorEx.class, "back_right_drive");
+//        leftLift = hwMap.get(DcMotorEx.class, "left_lift");
+//        rightLift = hwMap.get(DcMotorEx.class, "right_lift");
+
 //        spinner = hwMap.get(DcMotor.class, "spinner");
 
 //        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
 //        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
-        leftFront.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
-        rightFront.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        leftRear.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
-        rightRear.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftFront.setDirection(DcMotor.Direction.FORWARD);
+        rightFront.setDirection(DcMotor.Direction.REVERSE);
+        leftRear.setDirection(DcMotor.Direction.REVERSE);
+        rightRear.setDirection(DcMotor.Direction.REVERSE);
+//        leftLift.setDirection(DcMotor.Direction.FORWARD);
+//        rightLift.setDirection(DcMotor.Direction.FORWARD);
 
 
     }

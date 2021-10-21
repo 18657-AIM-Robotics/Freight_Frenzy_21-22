@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class autoFunctions extends hardware{
+public class robotFunctions extends hardware{
 
 
     public static double X_TICKSTOINCHES = 1425;
@@ -64,4 +64,15 @@ public class autoFunctions extends hardware{
         rightFront.setPower(0);
         rightRear.setPower(0);
     }
+
+//    public void liftUpDown(double power,  int ticks) {
+//        leftLift.setTargetPosition(leftLift.getCurrentPosition() + ticks);
+//        rightLift.setTargetPosition(rightLift.getCurrentPosition() + ticks);
+//        while (leftLift.getCurrentPosition() < leftLift.getTargetPosition() && rightLift.getCurrentPosition() < rightLift.getTargetPosition()) {
+//            leftLift.setVelocity(power);
+//            rightLift.setVelocity(power);
+//        }
+//        leftLift.setPower(0);
+//        rightLift.setPower(0);
+//    }
 }
