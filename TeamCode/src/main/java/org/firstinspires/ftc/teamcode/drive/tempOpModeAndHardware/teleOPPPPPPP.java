@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class teleOPPPPPPP extends OpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    hardware robot = new hardware();
+    robotFunctions robot = new robotFunctions();
 
 
     @Override
@@ -38,8 +38,8 @@ public class teleOPPPPPPP extends OpMode {
         double backRightPower;
 
         // Setup a variable for each drive wheel to save power level for telemetry
-        double y = gamepad1.left_stick_y * 1.2; // Remember, this is reversed!
-        double x = gamepad1.left_stick_x * 1.5;
+        double y = -gamepad1.left_stick_y * 1.2; // Remember, this is reversed!
+        double x = -gamepad1.left_stick_x * 1.5;
         double rx = gamepad1.right_stick_x * .85;
 
         frontLeftPower = (y + x - rx);
@@ -68,6 +68,19 @@ public class teleOPPPPPPP extends OpMode {
         robot.leftRear.setPower(backLeftPower * .8);
         robot.rightFront.setPower(frontRightPower * .8);
         robot.rightRear.setPower(backRightPower * .8);
+
+        if (gamepad1.y) {
+            robot.liftUpDown(2000);
+        } else if (gamepad1.a) {
+            robot.liftUpDown(-2000);
+        } else if (gamepad1.b) {
+            robot.intake(2500);
+        } else if (gamepad1.x) {
+            robot.outake(2500);
+        } else {
+            robot.liftUpDown(0);
+            robot.intake(0);
+        }
 
         // Show the elapsed game time and wheel power.
     }

@@ -65,14 +65,16 @@ public class robotFunctions extends hardware{
         rightRear.setPower(0);
     }
 
-//    public void liftUpDown(double power,  int ticks) {
-//        leftLift.setTargetPosition(leftLift.getCurrentPosition() + ticks);
-//        rightLift.setTargetPosition(rightLift.getCurrentPosition() + ticks);
-//        while (leftLift.getCurrentPosition() < leftLift.getTargetPosition() && rightLift.getCurrentPosition() < rightLift.getTargetPosition()) {
-//            leftLift.setVelocity(power);
-//            rightLift.setVelocity(power);
-//        }
-//        leftLift.setPower(0);
-//        rightLift.setPower(0);
-//    }
+    public void liftUpDown(double velocity) { // Negative power to lower height
+        leftLift.setVelocity(velocity);
+        rightLift.setVelocity(velocity);
+    }
+
+    public void intake(double velocity) {
+        intakeOutake.setVelocity(velocity);
+    }
+
+    public void outake(double velocity) {
+        intakeOutake.setVelocity(-velocity);
+    }
 }

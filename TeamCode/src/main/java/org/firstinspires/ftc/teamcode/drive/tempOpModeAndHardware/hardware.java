@@ -14,9 +14,9 @@ public class hardware {
     public DcMotorEx rightFront = null;
     public DcMotorEx leftRear = null;
     public DcMotorEx rightRear = null;
-//    public DcMotorEx leftLift = null;
-//    public DcMotorEx rightLift = null;
-//    public DcMotor spinner = null;
+    public DcMotorEx leftLift = null;
+    public DcMotorEx rightLift = null;
+    public DcMotorEx intakeOutake = null;
 
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -45,10 +45,9 @@ public class hardware {
         rightFront = hwMap.get(DcMotorEx.class, "front_right_drive");
         leftRear = hwMap.get(DcMotorEx.class, "back_left_drive");
         rightRear = hwMap.get(DcMotorEx.class, "back_right_drive");
-//        leftLift = hwMap.get(DcMotorEx.class, "left_lift");
-//        rightLift = hwMap.get(DcMotorEx.class, "right_lift");
-
-//        spinner = hwMap.get(DcMotor.class, "spinner");
+        leftLift = hwMap.get(DcMotorEx.class, "left_lift");
+        rightLift = hwMap.get(DcMotorEx.class, "right_lift");
+        intakeOutake = hwMap.get(DcMotorEx.class, "intake_outake");
 
 //        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
 //        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
@@ -56,8 +55,9 @@ public class hardware {
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         leftRear.setDirection(DcMotor.Direction.REVERSE);
         rightRear.setDirection(DcMotor.Direction.REVERSE);
-//        leftLift.setDirection(DcMotor.Direction.FORWARD);
-//        rightLift.setDirection(DcMotor.Direction.FORWARD);
+        leftLift.setDirection(DcMotor.Direction.FORWARD);
+        rightLift.setDirection(DcMotor.Direction.FORWARD);
+        intakeOutake.setDirection(DcMotor.Direction.FORWARD);
 
 
     }
