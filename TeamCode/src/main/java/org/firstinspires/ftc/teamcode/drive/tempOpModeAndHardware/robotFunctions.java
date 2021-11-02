@@ -15,16 +15,16 @@ public class robotFunctions extends hardware{
 
 //     TO MAKE IT MOVE THE INVERTED DIRECTION IT IS OPPOSITE POWER NOT DISTANCE
     public void moveIn(String xy, double power, double distance) {
-//        xEncoder.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        yEncoder.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        xEncoder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//        yEncoder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        xEncoder.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        yEncoder.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        xEncoder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        yEncoder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         if (xy == "x") {
             while (Math.abs(encoderToIn(xy)) < distance) {
-                leftFront.setPower(power);
-                leftRear.setPower(power);
-                rightFront.setPower(power);
-                rightRear.setPower(power);
+                leftFront.setPower(.1);
+                leftRear.setPower(.1);
+                rightFront.setPower(.1);
+                rightRear.setPower(.1);
             }
         } else if (xy == "y") {
             while (Math.abs(encoderToIn(xy)) < distance) {
@@ -57,7 +57,7 @@ public class robotFunctions extends hardware{
             leftFront.setPower(power);
             leftRear.setPower(power);
             rightFront.setPower(-power);
-            rightRear.setPower(-power * 1.13);
+            rightRear.setPower(-power);
         }
         leftFront.setPower(0);
         leftRear.setPower(0);

@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@Autonomous(name="firstAuto", group="Pushbot")
-public class firstAuto extends LinearOpMode {
+@Autonomous(name="northRedAuto1", group="Pushbot")
+public class northRedAuto1 extends LinearOpMode {
 
     robotFunctions robot = new robotFunctions();
 
@@ -21,14 +21,12 @@ public class firstAuto extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()) {
-            robot.moveIn("x", .1, 12); // Moves 12 inches to the Right
-            sleep(3000);
-            robot.moveIn("x", -.1, 12); // Moves 12 inches to the Left
-            sleep(3000);
-            robot.moveIn("y", .1, 12); // Moves 12 inches Forward
-            sleep(3000);
-            robot.moveIn("y", -.1, 12); // Moves 12 inches Backward
-            sleep(3000);
+            robot.moveIn("y", -.25, 24); // 24 inches to the left
+            robot.moveIn("x", .25, 30); // 30 inches forward
+            //DROPBOX
+            robot.moveIn("x", -.25, 3); // 3 inches backward
+            robot.moveIn("y", -.25, 12); // 50 inches to the left
+            robot.moveIn("x", .25, 3); // 3 inches forward
             break;
         }
     }

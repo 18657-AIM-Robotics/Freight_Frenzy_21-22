@@ -36,7 +36,7 @@ public class hardware {
     }
 
     /* Initialize standard Hardware interfaces */
-    public void init(HardwareMap ahwMap) {
+    public void init(HardwareMap ahwMap, boolean mechanisms) {
         // Save reference to Hardware map
         hwMap = ahwMap;
 
@@ -45,19 +45,25 @@ public class hardware {
         rightFront = hwMap.get(DcMotorEx.class, "front_right_drive");
         leftRear = hwMap.get(DcMotorEx.class, "back_left_drive");
         rightRear = hwMap.get(DcMotorEx.class, "back_right_drive");
-        leftLift = hwMap.get(DcMotorEx.class, "left_lift");
-        rightLift = hwMap.get(DcMotorEx.class, "right_lift");
-        intakeOutake = hwMap.get(DcMotorEx.class, "intake_outake");
-
-//        xEncoder = hwMap.get(DcMotorEx.class, "xEncoder");
-//        yEncoder = hwMap.get(DcMotorEx.class, "yEncoder");
-        leftFront.setDirection(DcMotor.Direction.FORWARD);
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
-        leftRear.setDirection(DcMotor.Direction.REVERSE);
-        rightRear.setDirection(DcMotor.Direction.REVERSE);
-        leftLift.setDirection(DcMotor.Direction.FORWARD);
-        rightLift.setDirection(DcMotor.Direction.FORWARD);
-        intakeOutake.setDirection(DcMotor.Direction.FORWARD);
+        if (mechanisms) {
+            leftLift = hwMap.get(DcMotorEx.class, "left_lift");
+            rightLift = hwMap.get(DcMotorEx.class, "right_lift");
+            intakeOutake = hwMap.get(DcMotorEx.class, "intake_outake");
+            leftLift.setDirection(DcMotor.Direction.FORWARD);
+            rightLift.setDirection(DcMotor.Direction.FORWARD);
+            intakeOutake.setDirection(DcMotor.Direction.FORWARD);
+            leftFront.setDirection(DcMotor.Direction.REVERSE);
+            rightFront.setDirection(DcMotor.Direction.REVERSE);
+            leftRear.setDirection(DcMotor.Direction.FORWARD);
+            rightRear.setDirection(DcMotor.Direction.FORWARD);
+        } else {
+            leftFront.setDirection(DcMotor.Direction.REVERSE);
+            rightFront.setDirection(DcMotor.Direction.FORWARD);
+            leftRear.setDirection(DcMotor.Direction.FORWARD);
+            rightRear.setDirection(DcMotor.Direction.FORWARD);
+            xEncoder = leftFront;
+            yEncoder = rightFront;
+        }
 
 
     }
