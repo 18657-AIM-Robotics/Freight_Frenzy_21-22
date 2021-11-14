@@ -25,7 +25,7 @@ public class northRedAuto1 extends LinearOpMode {
             robot.moveIn("x", .25, 30); // 30 inches forward
             //DROPBOX
             robot.moveIn("x", -.25, 3); // 3 inches backward
-            robot.moveIn("y", -.25, 12); // 50 inches to the left
+            robot.moveIn("y", -.25, 50); // 50 inches to the left
             robot.moveIn("x", .25, 3); // 3 inches forward
             break;
         }

@@ -15,7 +15,7 @@ public class teleOPPPPPPP extends OpMode {
     boolean frontRightON = true;
     boolean backLeftON = true;
     boolean backRightON = true;
-    boolean mechanisms = false;
+    boolean mechanisms = true;
 
 
 
@@ -27,6 +27,8 @@ public class teleOPPPPPPP extends OpMode {
         robot.rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         robot.leftRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         robot.rightRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.leftLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.rightLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
 
@@ -71,18 +73,18 @@ public class teleOPPPPPPP extends OpMode {
         robot.rightFront.setPower(frontRightPower * .8);
         robot.rightRear.setPower(backRightPower * .8);
 
-//        if (gamepad1.y) {
-//            robot.liftUpDown(2000);
-//        } else if (gamepad1.a) {
-//            robot.liftUpDown(-2000);
-//        } else if (gamepad1.b) {
-//            robot.intake(2500);
-//        } else if (gamepad1.x) {
-//            robot.outake(2500);
-//        } else {
-//            robot.liftUpDown(0);
-//            robot.intake(0);
-//        }
+        if (gamepad1.y) {
+            robot.liftUpDown(2000);
+        } else if (gamepad1.a) {
+            robot.liftUpDown(-2000);
+        } else if (gamepad1.b) {
+            robot.intake(2500);
+        } else if (gamepad1.x) {
+            robot.outake(2500);
+        } else {
+            robot.liftUpDown(0);
+            robot.intake(0);
+        }
 
         // Show the elapsed game time and wheel power.
     }

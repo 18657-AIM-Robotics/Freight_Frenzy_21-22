@@ -66,7 +66,7 @@ public class robotFunctions extends hardware{
     }
 
     public void liftUpDown(double velocity) { // Negative power to lower height
-        leftLift.setVelocity(velocity);
+        leftLift.setVelocity(-velocity);
         rightLift.setVelocity(velocity);
     }
 
