@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -17,6 +18,8 @@ public class hardware {
     public DcMotorEx leftLift = null;
     public DcMotorEx rightLift = null;
     public DcMotorEx intakeOutake = null;
+    public DcMotorEx spinner = null;
+    public CRServo push = null;
 
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -56,13 +59,15 @@ public class hardware {
             rightFront.setDirection(DcMotor.Direction.REVERSE);
             leftRear.setDirection(DcMotor.Direction.FORWARD);
             rightRear.setDirection(DcMotor.Direction.FORWARD);
+            xEncoder = rightLift;
+            yEncoder = intakeOutake;
+            spinner = hwMap.get(DcMotorEx.class, "spinner");
+            push = hwMap.get(CRServo.class, "push");
         } else {
             leftFront.setDirection(DcMotor.Direction.REVERSE);
             rightFront.setDirection(DcMotor.Direction.FORWARD);
             leftRear.setDirection(DcMotor.Direction.FORWARD);
             rightRear.setDirection(DcMotor.Direction.FORWARD);
-            xEncoder = leftFront;
-            yEncoder = rightFront;
         }
 
 

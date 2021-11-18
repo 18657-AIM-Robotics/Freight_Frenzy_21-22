@@ -73,17 +73,22 @@ public class teleOPPPPPPP extends OpMode {
         robot.rightFront.setPower(frontRightPower * .8);
         robot.rightRear.setPower(backRightPower * .8);
 
-        if (gamepad1.y) {
+        if (gamepad1.a) {
             robot.liftUpDown(2000);
-        } else if (gamepad1.a) {
+        } else if (gamepad1.y) {
             robot.liftUpDown(-2000);
         } else if (gamepad1.b) {
             robot.intake(2500);
         } else if (gamepad1.x) {
             robot.outake(2500);
+        } else if (gamepad1.left_bumper) {
+            robot.push.setPower(-1);
+        } else if (gamepad1.right_bumper) {
+            robot.push.setPower(1);
         } else {
             robot.liftUpDown(0);
             robot.intake(0);
+            robot.push.setPower(0);
         }
 
         // Show the elapsed game time and wheel power.
