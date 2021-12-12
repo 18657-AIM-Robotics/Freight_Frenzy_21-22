@@ -12,7 +12,7 @@ public class firstAuto extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        robot.init(hardwareMap, false);
+        robot.init(hardwareMap, false, true);
         robot.leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         robot.rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         robot.leftRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -21,14 +21,9 @@ public class firstAuto extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()) {
-            robot.moveIn("x", .1, 12); // Moves 12 inches to the Right
-            sleep(5000);
-            robot.moveIn("x", -.1, 12); // Moves 12 inches to the Left
-            sleep(5000);
-            robot.moveIn("y", .1, 12); // Moves 12 inches Forward
-            sleep(5000);
-            robot.moveIn("y", -.1, 12); // Moves 12 inches Backward
-            sleep(5000);
+            robot.moveLeftRight(.5);
+            sleep(3000);
+            robot.stopDrive();
             break;
         }
     }
