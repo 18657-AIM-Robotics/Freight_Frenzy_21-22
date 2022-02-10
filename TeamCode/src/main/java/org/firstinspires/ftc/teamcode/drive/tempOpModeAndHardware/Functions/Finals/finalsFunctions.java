@@ -1,13 +1,15 @@
-package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware;
+package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware.Functions.Finals;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-public class robotFunctions extends hardware{
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware.Hardware.finalsHardware;
 
-    public boolean conveyorON = false;
+public class finalsFunctions extends finalsHardware {
+
     public static double X_TICKSTOINCHES = 1425;
     public static double Y_TICKSTOINCHES = 1725;
-    final double COLOR_SCALE_FACTOR = 255;
 
 //    public double encoderToIn(String encoder) {
 //
@@ -77,28 +79,12 @@ public class robotFunctions extends hardware{
 //        rightRear.setPower(0);
 //    }
 
-//    public void liftUpDown(double velocity) { // Negative power to lower height
-//        leftLift.setVelocity(-velocity);
-//        rightLift.setVelocity(velocity);
-//    }
-
     public void intake(double velocity) {
         intakeOutake.setVelocity(velocity);
     }
 
     public void outake(double velocity) {
         intakeOutake.setVelocity(-velocity);
-    }
-
-    public void stopMotors() {
-        leftFront.setPower(0);
-        leftRear.setPower(0);
-        rightFront.setPower(0);
-        rightRear.setPower(0);
-        tape.setPower(0);
-        spinner.setPower(0);
-        intakeOutake.setPower(0);
-        conveyor.setPower(0);
     }
 
     public void stopDrive() {
@@ -116,10 +102,10 @@ public class robotFunctions extends hardware{
     }
 
     public void moveLeftRight(double power) {
-        leftFront.setPower(power * .85);
-        leftRear.setPower(-power * 1.4);
-        rightFront.setPower(-power * .85);
-        rightRear.setPower(power * 1.2);
+        leftFront.setPower(power);
+        leftRear.setPower(-power);
+        rightFront.setPower(-power);
+        rightRear.setPower(power);
     }
 
     public void turn(double power) {
@@ -127,5 +113,73 @@ public class robotFunctions extends hardware{
         leftRear.setPower(power);
         rightFront.setPower(-power);
         rightRear.setPower(-power);
+    }
+
+    public boolean detectFreight1() {
+        if (freightDetector1.red() > 1550) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean detectFreight2() {
+        if (freightDetector2.red() > 1550) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean detectFreight3() {
+        if (freightDetector3.red() > 1550) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean detectFreight4() {
+        if (freightDetector3.red() > 1550) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean detectFreight5() {
+        if (freightDetector3.red() > 1550) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void autoLiftUpDown(double speed) {
+        autoLift.setPower(speed);
+    }
+
+    public void autoSpitOut() {
+        autoSlide.setPosition(1);
+    }
+
+    public void resetConveyor2Position(double speed) {
+        int target = 0;
+        conveyor2.setTargetPosition(target);
+
+        conveyor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        conveyor2.setPower(Math.abs(speed));
+
+        if (conveyor2.isBusy()) {
+
+        } else {
+            conveyor2.setPower(0);
+            conveyor2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    public boolean checkDistance(double distance) {
+        if (freightDistance1.getDistance(DistanceUnit.INCH) > distance) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

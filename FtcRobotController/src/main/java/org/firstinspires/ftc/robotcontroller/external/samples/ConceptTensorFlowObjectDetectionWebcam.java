@@ -50,7 +50,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
  * is explained below.
  */
 @TeleOp(name = "Concept: TensorFlow Object Detection Webcam", group = "Concept")
-@Disabled
+
 public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
   /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
    * the following 4 detectable objects
@@ -63,13 +63,15 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
    *  FreightFrenzy_BC.tflite  0: Ball,  1: Cube
    *  FreightFrenzy_DM.tflite  0: Duck,  1: Marker
    */
-    private static final String TFOD_MODEL_ASSET = "FreightFrenzy_BCDM.tflite";
+    private static final String TFOD_MODEL_ASSET = "FreightFrenzy_DM.tflite";
     private static final String[] LABELS = {
       "Ball",
       "Cube",
       "Duck",
       "Marker"
     };
+
+    public boolean stopProgram = false;
 
     /*
      * IMPORTANT: You need to obtain your own license key to use Vuforia. The string below with which
@@ -84,7 +86,7 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
      * and paste it in to your code on the next line, between the double quotes.
      */
     private static final String VUFORIA_KEY =
-            " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+            "AQJCq9P/////AAABmRF3bj1dCUxOiN/kZJz6n+8AMWhQRttZrjuCfDKY/h6MyolB6NeVIvECXtaieNHxOgiLDloKRhY65smtSdEc3SA8k2i27bmjRwnSTh45hWcSbIyUuK9UdrtD4cTiGtS1NZchY50k4vgBp3so0hATwlv413gRNjhVKLE2RVPqsWDnecCEvBRlAzk2Pgm0QEBMR5pV/amkShrWssyq317OuJ7NgZW0IgsEc6xS3wykAl2SlFlWPXj+n7JlW+E044nYZLXn2invAz4WT/i8enbJn41qPokfT60jk6HFYsutdb5LeHNui8B4+lO+7riOvrVJnKT25QGchiO9TZHdAepynUelShm1u+eJa5HjNpGVHNeT";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
@@ -142,11 +144,18 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
                                 recognition.getLeft(), recognition.getTop());
                         telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
                                 recognition.getRight(), recognition.getBottom());
+                        if (recognition.getLeft() > 300) {
+                            stopProgram = true;
+                        }
                         i++;
                       }
                       telemetry.update();
                     }
                 }
+                if (stopProgram) {
+                    break;
+                }
+
             }
         }
     }
@@ -161,7 +170,7 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        parameters.cameraName = hardwareMap.get(WebcamName.class, "EagleEyes");
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);

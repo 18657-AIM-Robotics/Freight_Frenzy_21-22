@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware;
+package org.firstinspires.ftc.teamcode.drive.tempOpModeAndHardware.Hardware;
 
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -21,12 +22,17 @@ public class hardware {
     public DcMotorEx intakeOutake = null;
     public DcMotorEx spinner = null;
     public DcMotorEx conveyor = null;
-    public CRServo flag = null;
+//    public DcMotorEx lift = null;
+//    public CRServo flag = null;
     public CRServo capper = null;
-    public CRServo hand = null;
-    public ColorSensor sensorColor = null;
-    public DcMotorEx tape = null;
+    public CRServo capper2 = null;
+//    public CRServo hand = null;
+    public ColorSensor freightDetector1 = null;
+    public ColorSensor freightDetector2 = null;
+//    public DcMotorEx tape = null;
 //    public CRServo push = null;
+    public Servo leftLifter = null;
+    public Servo rightLifter = null;
 
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -70,18 +76,25 @@ public class hardware {
 //            yEncoder = intakeOutake;
             spinner = hwMap.get(DcMotorEx.class, "spinner");
             conveyor = hwMap.get(DcMotorEx.class, "conveyor");
-            tape = hwMap.get(DcMotorEx.class, "tape");
-            flag = hwMap.get(CRServo.class, "flag");
+//            tape = hwMap.get(DcMotorEx.class, "tape");
+//            lift = hwMap.get(DcMotorEx.class, "lift");
+//            flag = hwMap.get(CRServo.class, "flag");
             capper = hwMap.get(CRServo.class, "capper");
-            hand = hwMap.get(CRServo.class, "hand");
-            sensorColor = hwMap.get(ColorSensor.class, "sensor_Color");
+            capper2 = hwMap.get(CRServo.class, "capper2");
+            leftLifter = hwMap.get(Servo.class, "LLifter");
+//            rightLifter = hwMap.get(Servo.class, "RLifter");
+////            hand = hwMap.get(CRServo.class, "hand");
+            freightDetector1 = hwMap.get(ColorSensor.class, "FD1");
+            freightDetector2 = hwMap.get(ColorSensor.class, "FD2");
         } else if (auto){
             leftFront.setDirection(DcMotor.Direction.REVERSE);
             rightFront.setDirection(DcMotor.Direction.FORWARD);
             leftRear.setDirection(DcMotor.Direction.REVERSE);
             rightRear.setDirection(DcMotor.Direction.FORWARD);
+            intakeOutake = hwMap.get(DcMotorEx.class, "intake_outake");
             spinner = hwMap.get(DcMotorEx.class, "spinner");
             capper = hwMap.get(CRServo.class, "capper");
+            capper2 = hwMap.get(CRServo.class, "capper2");
         } else {
             leftFront.setDirection(DcMotor.Direction.FORWARD);
             rightFront.setDirection(DcMotor.Direction.FORWARD);
