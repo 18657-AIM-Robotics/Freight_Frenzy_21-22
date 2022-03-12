@@ -24,9 +24,9 @@ public class YellowAVGPipeline extends OpenCvPipeline
     /*
      * The core values which define the location and size of the sample regions
      */
-    static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(0,110); // 109, 98
-    static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(130,120);
-    static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(260,130);
+    static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(0,55); // 109, 98
+    static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(130,55);
+    static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(260,55);
     static final int REGION_WIDTH = 60;
     static final int REGION_HEIGHT = 60;
 
@@ -137,15 +137,6 @@ public class YellowAVGPipeline extends OpenCvPipeline
          * is where we assume the SkyStone to be, since the normal stones show up
          * extremely darkly.
          *
-         * We also draw rectangles on the screen showing where the sample regions
-         * are, as well as drawing a solid rectangle over top the sample region
-         * we believe is on top of the SkyStone.
-         *
-         * In order for this whole process to work correctly, each sample region
-         * should be positioned in the center of each of the first 3 stones, and
-         * be small enough such that only the stone is sampled, and not any of the
-         * surroundings.
-         */
 
         /*
          * Get the Cb channel of the input frame after conversion to YCrCb
@@ -196,8 +187,6 @@ public class YellowAVGPipeline extends OpenCvPipeline
                 region3_pointB, // Second point which defines the rectangle
                 BLUE, // The color the rectangle is drawn in
                 2); // Thickness of the rectangle lines
-
-
         /*
          * Find the max of the 3 averages
          */
@@ -254,11 +243,6 @@ public class YellowAVGPipeline extends OpenCvPipeline
                     -1); // Negative thickness means solid fill
         }
 
-        /*
-         * Render the 'input' buffer to the viewport. But note this is not
-         * simply rendering the raw camera feed, because we called functions
-         * to add some annotations to this buffer earlier up.
-         */
         return input;
     }
 }

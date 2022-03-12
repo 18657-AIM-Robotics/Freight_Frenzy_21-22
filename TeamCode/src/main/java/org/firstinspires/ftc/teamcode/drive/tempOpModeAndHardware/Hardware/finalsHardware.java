@@ -39,10 +39,6 @@ public class finalsHardware {
     public Servo autoSlide = null;
 
 
-    public DcMotorEx xEncoder1 = null;
-    public DcMotorEx xEncoder2 = null;
-    public DcMotorEx yEncoder = null;
-
     /* Constructor */
     public finalsHardware() {
 
@@ -64,23 +60,14 @@ public class finalsHardware {
         rightFront.setDirection(DcMotor.Direction.FORWARD);
         leftRear.setDirection(DcMotor.Direction.REVERSE);
         rightRear.setDirection(DcMotor.Direction.FORWARD);
-//        xEncoder1 = rightLift;
-//        xEncoder2 = leftLift;
-//        yEncoder = intakeOutake;
-        spinner = hwMap.get(DcMotorEx.class, "spinner1");
+        spinner = hwMap.get(DcMotorEx.class, "spinner");
         conveyor1 = hwMap.get(DcMotorEx.class, "conveyor1");
         conveyor2 = hwMap.get(DcMotorEx.class, "conveyor2");
 
         freightDetector1 = hwMap.get(ColorSensor.class, "FD1");
         freightDetector2 = hwMap.get(ColorSensor.class, "FD2");
-        freightDetector3 = hwMap.get(ColorSensor.class, "FD3");
-        freightDetector4 = hwMap.get(ColorSensor.class, "FD4");
-        freightDetector5 = hwMap.get(ColorSensor.class, "FD5");
+//        freightDetector3 = hwMap.get(ColorSensor.class, "FD3");
 
-        freightDistance1 = hwMap.get(DistanceSensor.class, "DS1"); // Distance
-
-        leftGate = hwMap.get(Servo.class, "LGate");
-        rightGate = hwMap.get(Servo.class, "RGate");
         leftSlide = hwMap.get(Servo.class, "LSlide");
         rightSlide = hwMap.get(Servo.class, "RSlide");
         YAW = hwMap.get(CRServo.class, "yaw");

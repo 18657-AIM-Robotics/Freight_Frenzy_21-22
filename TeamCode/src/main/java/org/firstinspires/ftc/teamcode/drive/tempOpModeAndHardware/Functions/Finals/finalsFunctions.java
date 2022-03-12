@@ -116,14 +116,14 @@ public class finalsFunctions extends finalsHardware {
     }
 
     public boolean detectFreight1() {
-        if (freightDetector1.red() > 1550) {
+        if (freightDetector1.red() > 1600) {
             return true;
         } else {
             return false;
         }
     }
     public boolean detectFreight2() {
-        if (freightDetector2.red() > 1550) {
+        if (freightDetector2.red() > 75) {
             return true;
         } else {
             return false;
@@ -161,6 +161,38 @@ public class finalsFunctions extends finalsHardware {
 
     public void resetConveyor2Position(double speed) {
         int target = 0;
+        conveyor2.setTargetPosition(target);
+
+        conveyor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        conveyor2.setPower(Math.abs(speed));
+
+        if (conveyor2.isBusy()) {
+
+        } else {
+            conveyor2.setPower(0);
+            conveyor2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    public void Conveyor1Position(double speed, int position) {
+        int target = position;
+        conveyor1.setTargetPosition(target);
+
+        conveyor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        conveyor1.setPower(Math.abs(speed));
+
+        if (conveyor1.isBusy()) {
+
+        } else {
+            conveyor1.setPower(0);
+            conveyor1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
+
+    public void Conveyor2Position(double speed, int position) {
+        int target = position;
         conveyor2.setTargetPosition(target);
 
         conveyor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
